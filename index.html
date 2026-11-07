@@ -21,26 +21,37 @@ overflow: hidden;
 .container {
 text-align: center;
 position: relative;
-padding: 40px;
+padding: 25px;
 border-radius: 24px;
 }
-/* Vibrant Portal Border Pulse */
+/* Full-Spectrum Cosmic Rainbow Border Fluid Animation */
 .container::before {
 content: '';
 position: absolute;
-top: -2px; left: -2px; right: -2px; bottom: -2px;
-background: linear-gradient(45deg, #ff007f, #7f00ff, #00f0ff, #ff007f);
-background-size: 400%;
+top: -4px; left: -4px; right: -4px; bottom: -4px;
+background: linear-gradient(45deg,
+#ff007f, /* Hot Pink */
+#7f00ff, /* Deep Purple */
+#00f0ff, /* Electric Cyan */
+#39ff14, /* Neon Green */
+#ffff00, /* Bright Yellow */
+#ff6700, /* Vibrant Orange */
+#ff007f /* Loop Back */
+);
+background-size: 300% 300%;
 z-index: -1;
-border-radius: 26px;
-filter: blur(8px);
-animation: portalGlow 12s linear infinite;
-opacity: 0.6;
+border-radius: 28px;
+filter: blur(4px);
+animation: cosmicRainbow 8s linear infinite;
 }
 .inner-box {
 background: #0b0914;
-padding: 50px 60px;
+padding: 55px 65px;
 border-radius: 22px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 }
 h1 {
 font-family: 'Satoshi', sans-serif;
@@ -48,7 +59,7 @@ font-weight: 900; /* Satoshi Black */
 font-size: 5.5rem;
 letter-spacing: -3px;
 margin-bottom: 10px;
-background: linear-gradient(135deg, #ffffff 50%, #a29bfe 100%);
+background: linear-gradient(135deg, #ffffff 60%, #b3b0ca 100%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 }
@@ -56,14 +67,14 @@ p.teaser {
 font-size: 1.2rem;
 color: #b3b0ca;
 max-width: 320px;
-margin: 0 auto 30px auto;
+margin: 0 auto 35px auto;
 line-height: 1.4;
 font-weight: 400;
 }
 .badge {
 display: inline-block;
-background: rgba(255, 255, 255, 0.05);
-border: 1px solid rgba(255, 255, 255, 0.1);
+background: rgba(255, 255, 255, 0.04);
+border: 1px solid rgba(255, 255, 255, 0.08);
 padding: 8px 18px;
 border-radius: 50px;
 font-size: 0.85rem;
@@ -71,21 +82,24 @@ text-transform: uppercase;
 letter-spacing: 2px;
 color: #ff007f;
 font-weight: 700;
+margin-bottom: 15px;
 }
 .footer-links {
-margin-top: 40px;
+margin-top: 25px;
 font-size: 0.8rem;
 }
 .footer-links a {
 color: #6c5ce7;
 text-decoration: none;
-margin: 0 10px;
+margin: 0 12px;
 transition: color 0.2s;
+font-weight: 400;
 }
 .footer-links a:hover {
 color: #ff007f;
 }
-@keyframes portalGlow {
+/* Ultra Smooth Swirling Gradient Matrix */
+@keyframes cosmicRainbow {
 0% { background-position: 0% 50%; }
 50% { background-position: 100% 50%; }
 100% { background-position: 0% 50%; }
@@ -109,3 +123,4 @@ color: #ff007f;
 
 </body>
 </html>
+
