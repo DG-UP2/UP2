@@ -18,32 +18,44 @@ align-items: center;
 height: 100vh;
 overflow: hidden;
 }
+
+/* The Pulsing, Throat-throbbing Multi-Layer Portal Frame */
 .container {
 text-align: center;
 position: relative;
-padding: 25px;
-border-radius: 24px;
+padding: 12px; /* Uniform width to let the nested spectrum stack breathe */
+border-radius: 28px;
+background: transparent;
+animation: portalThrob 4s ease-in-out infinite alternate;
 }
-/* Full-Spectrum Cosmic Rainbow Border Fluid Animation */
+
+/*
+THE SPECTRUM PORTAL CONFIGURATION:
+Concentric stacking sequence from the outer edge inward:
+Red -> Yellow -> Green -> Blue -> Purple (Main Core Accent)
+Faint, sophisticated saturation values to eliminate eye strain.
+*/
 .container::before {
 content: '';
 position: absolute;
 top: -4px; left: -4px; right: -4px; bottom: -4px;
-background: linear-gradient(45deg,
-#ff007f, /* Hot Pink */
-#7f00ff, /* Deep Purple */
-#00f0ff, /* Electric Cyan */
-#39ff14, /* Neon Green */
-#ffff00, /* Bright Yellow */
-#ff6700, /* Vibrant Orange */
-#ff007f /* Loop Back */
+background: radial-gradient(
+circle at center,
+transparent 52%,
+rgba(108, 92, 231, 0.55) 58%, /* Main Purple Interior Interior */
+rgba(9, 132, 227, 0.40) 65%, /* Muted Blue Layer */
+rgba(0, 184, 148, 0.35) 72%, /* Muted Green Layer */
+rgba(253, 203, 110, 0.40) 80%, /* Muted Yellow Layer */
+rgba(214, 48, 49, 0.45) 90%, /* Muted Red Outer Layer */
+transparent 98%
 );
-background-size: 300% 300%;
 z-index: -1;
-border-radius: 28px;
-filter: blur(4px);
-animation: cosmicRainbow 8s linear infinite;
+border-radius: 32px;
+filter: blur(2px);
+animation: portalRotate 25s linear infinite;
 }
+
+/* Clean, Dark Isolated Core to Let White Text Pop Without Interference */
 .inner-box {
 background: #0b0914;
 padding: 55px 65px;
@@ -52,17 +64,20 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+box-shadow: inset 0 0 25px rgba(108, 92, 231, 0.2);
 }
+
 h1 {
 font-family: 'Satoshi', sans-serif;
 font-weight: 900; /* Satoshi Black */
 font-size: 5.5rem;
 letter-spacing: -3px;
 margin-bottom: 10px;
-background: linear-gradient(135deg, #ffffff 60%, #b3b0ca 100%);
+background: linear-gradient(135deg, #ffffff 70%, rgba(108, 92, 231, 0.6) 100%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 }
+
 p.teaser {
 font-size: 1.2rem;
 color: #b3b0ca;
@@ -71,23 +86,26 @@ margin: 0 auto 35px auto;
 line-height: 1.4;
 font-weight: 400;
 }
+
 .badge {
 display: inline-block;
-background: rgba(255, 255, 255, 0.04);
-border: 1px solid rgba(255, 255, 255, 0.08);
+background: rgba(108, 92, 231, 0.1);
+border: 1px solid rgba(108, 92, 231, 0.3);
 padding: 8px 18px;
 border-radius: 50px;
 font-size: 0.85rem;
 text-transform: uppercase;
 letter-spacing: 2px;
-color: #ff007f;
+color: #b3b0ca;
 font-weight: 700;
 margin-bottom: 15px;
 }
+
 .footer-links {
 margin-top: 25px;
 font-size: 0.8rem;
 }
+
 .footer-links a {
 color: #6c5ce7;
 text-decoration: none;
@@ -95,14 +113,21 @@ margin: 0 12px;
 transition: color 0.2s;
 font-weight: 400;
 }
+
 .footer-links a:hover {
-color: #ff007f;
+color: rgba(214, 48, 49, 0.8);
 }
-/* Ultra Smooth Swirling Gradient Matrix */
-@keyframes cosmicRainbow {
-0% { background-position: 0% 50%; }
-50% { background-position: 100% 50%; }
-100% { background-position: 0% 50%; }
+
+/* Concentric Portal Multi-Layer Rotational Matrix */
+@keyframes portalRotate {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+/* Throbbing Pulse Dynamic Setup */
+@keyframes portalThrob {
+0% { transform: scale(0.97); filter: brightness(0.9); }
+100% { transform: scale(1.03); filter: brightness(1.1); }
 }
 </style>
 </head>
