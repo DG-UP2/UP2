@@ -3,119 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy - UP2?</title>
+<title>Privacy Policy · UP2?</title>
+<meta name="description" content="How UP2? collects, uses, shares and deletes your information.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0512" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap" rel="stylesheet">
 <style>
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
-h1, h2 { color: #111; }
-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-th { background-color: #f8f9fa; }
+:root { --bg:#FFFFFF; --text:#2A2533; --head:#0A0512; --muted:#6B6478; --line:#E6E2EE; --panel:#F7F5FB; --accent:#6B3FD6; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#0A0512; --text:#D9D4E5; --head:#FFFFFF; --muted:#A39CB3; --line:#262033; --panel:#120D1C; --accent:#B98CFF; }
+}
+* { box-sizing:border-box; }
+html { background:var(--bg); -webkit-text-size-adjust:100%; }
+body { margin:0; background:var(--bg); color:var(--text); font-family:'Satoshi',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; font-weight:500; font-size:16.5px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+header.top { border-bottom:1px solid var(--line); }
+header.top .inner, main, footer .inner { max-width:760px; margin:0 auto; padding-left:24px; padding-right:24px; }
+header.top .inner { display:flex; align-items:center; justify-content:space-between; height:64px; }
+.brand { color:var(--head); font-weight:900; font-size:24px; letter-spacing:-0.5px; text-decoration:none; }
+nav a { color:var(--muted); font-weight:700; font-size:14px; text-decoration:none; margin-left:20px; }
+nav a[aria-current="page"], nav a:hover { color:var(--head); }
+main { padding-top:44px; padding-bottom:40px; }
+h1 { color:var(--head); font-weight:900; font-size:clamp(32px,6vw,42px); line-height:1.1; letter-spacing:-0.5px; margin:0 0 8px; }
+.meta { color:var(--muted); font-size:14px; margin:0 0 28px; }
+h2 { color:var(--head); font-weight:900; font-size:21px; line-height:1.3; margin:44px 0 10px; scroll-margin-top:20px; }
+h3 { color:var(--head); font-weight:700; font-size:16.5px; margin:22px 0 6px; }
+p, ul { margin:0 0 14px; }
+ul { padding-left:22px; }
+li { margin-bottom:7px; }
+li::marker { color:var(--muted); }
+strong { color:var(--head); font-weight:700; }
+a { color:var(--accent); font-weight:700; text-decoration:underline; text-underline-offset:2px; }
+a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+.summary { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 22px 8px; margin:0 0 8px; }
+.summary h2 { margin:0 0 10px; font-size:17px; }
+.toc { margin:28px 0 0; padding:0; list-style:none; columns:2; column-gap:28px; font-size:14.5px; }
+.toc li { margin-bottom:6px; break-inside:avoid; }
+.toc a { color:var(--muted); font-weight:700; text-decoration:none; }
+.toc a:hover { color:var(--head); }
+.table { overflow-x:auto; border:1px solid var(--line); border-radius:12px; margin:14px 0 18px; }
+table { width:100%; min-width:560px; border-collapse:collapse; font-size:15px; line-height:1.5; }
+th, td { text-align:left; vertical-align:top; padding:12px 14px; border-bottom:1px solid var(--line); }
+th { color:var(--muted); font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; background:var(--panel); }
+tr:last-child td { border-bottom:0; }
+td:first-child { color:var(--head); font-weight:700; width:30%; }
+footer { border-top:1px solid var(--line); margin-top:24px; }
+footer .inner { padding-top:22px; padding-bottom:40px; color:var(--muted); font-size:14px; display:flex; flex-wrap:wrap; gap:8px 22px; }
+footer a { color:var(--muted); text-decoration:none; }
+footer a:hover { color:var(--head); }
+@media (max-width:560px) { body { font-size:16px; } .toc { columns:1; } nav a { margin-left:14px; } }
+@media (max-width:560px) {
+  .table { border:0; overflow:visible; }
+  table, tbody, tr, td { display:block; min-width:0; width:100%; }
+  thead { display:none; }
+  tr { border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin-bottom:10px; }
+  td { padding:2px 0; border:0; width:auto !important; }
+  td:first-child { font-size:15.5px; margin-bottom:4px; }
+  td[data-label]:not(:first-child)::before { content:attr(data-label); display:block; color:var(--muted); font-size:11.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; margin-top:6px; }
+}
+@media print { header.top, footer, .toc { display:none; } body { color:#000; background:#fff; } a { color:#000; } }
 </style>
 </head>
 <body>
+<header class="top"><div class="inner">
+  <a class="brand" href="/">UP2?</a>
+  <nav><a href="/privacy" aria-current="page">Privacy</a><a href="/terms">Terms</a></nav>
+</div></header>
+
+<main>
 <h1>Privacy Policy</h1>
-<p><strong>Last updated: November 2026</strong></p>
-<p>UP2? is operated by DANIEL ROWAN GIETZEL trading as UP2? App (ABN: 14 949 929 688), Queensland, Australia ("we", "us"). Contact: privacy@up2app.app.</p>
+<p class="meta">Effective 25 November 2026</p>
 
-<h2>1. What UP2? is</h2>
-<p>UP2? helps adults arrange short, spontaneous, in-person meet-ups. A person creates an event, others ask to join, the creator confirms who comes, and the group gets a temporary chatroom until the event ends.</p>
+<div class="summary">
+  <h2>The short version</h2>
+  <ul>
+    <li>UP2? is for adults (18+) to make short, real-world plans with people nearby.</li>
+    <li>Events, chats and messages delete themselves about 2 hours after an event starts.</li>
+    <li>Your exact meeting spot is only shown to people once the host locks in the chat.</li>
+    <li>We never sell your data, show ads or track you outside the app.</li>
+    <li>You can delete your account at any time in Settings.</li>
+  </ul>
+</div>
 
-<h2>2. What we collect</h2>
-<table>
-<thead>
-<tr>
-<th>Data</th>
-<th>When</th>
-<th>Why</th>
-</tr>
-</thead>
+<ol class="toc">
+  <li><a href="#who">1. Who we are</a></li>
+  <li><a href="#collect">2. What we collect</a></li>
+  <li><a href="#sensitive">3. Optional sensitive details</a></li>
+  <li><a href="#use">4. How we use it</a></li>
+  <li><a href="#see">5. Who can see what</a></li>
+  <li><a href="#location">6. Location, camera and notifications</a></li>
+  <li><a href="#keep">7. How long we keep it</a></li>
+  <li><a href="#delete">8. Deleting your account</a></li>
+  <li><a href="#safety">9. Safety, reports and moderation</a></li>
+  <li><a href="#providers">10. Service providers</a></li>
+  <li><a href="#overseas">11. Data stored outside Australia</a></li>
+  <li><a href="#law">12. Authorities and the law</a></li>
+  <li><a href="#security">13. Security and breaches</a></li>
+  <li><a href="#rights">14. Your rights and complaints</a></li>
+  <li><a href="#age">15. Age limit</a></li>
+  <li><a href="#changes">16. Changes and contact</a></li>
+</ol>
+
+<h2 id="who">1. Who we are</h2>
+<p>UP2? is operated by Daniel Rowan Gietzel trading as UP2? App (ABN 14 949 929 688), Queensland, Australia ("UP2?", "we", "us"). This policy explains how we handle personal information in the UP2? app and at up2app.app. We follow the Australian Privacy Principles in the <em>Privacy Act 1988</em> (Cth).</p>
+<p>Questions or requests: <a href="mailto:privacy@up2app.app">privacy@up2app.app</a>.</p>
+
+<h2 id="collect">2. What we collect</h2>
+<div class="table"><table>
+<thead><tr><th>Information</th><th>When we get it</th><th>Why</th></tr></thead>
 <tbody>
-<tr>
-<td><strong>Email address or phone number</strong></td>
-<td>Sign-up and login</td>
-<td>To send you a login code and identify your account.</td>
-</tr>
-<tr>
-<td><strong>Name, age, gender</strong></td>
-<td>Create Profile</td>
-<td>Shown on your profile card and used to match age and gender limits that event creators set.</td>
-</tr>
-<tr>
-<td><strong>Live selfie</strong></td>
-<td>Create Profile, and every 2 weeks if you refresh</td>
-<td>Shown to other users so people can see who they are meeting. Taken in-app with the camera only; uploads from your gallery are not allowed. Also used to check you are 18 or older if a report or check requires it.</td>
-</tr>
-<tr>
-<td><strong>Hometown and three "What I'm UP2" points (optional)</strong></td>
-<td>Create Profile or Settings</td>
-<td>Shown on your profile card to people you interact with.</td>
-</tr>
-<tr>
-<td><strong>Approximate location</strong></td>
-<td>Create Profile, creating an event, and viewing the Join feed</td>
-<td>To show events near you and to place an event's meeting area.</td>
-</tr>
-<tr>
-<td><strong>Event details you create</strong></td>
-<td>Create</td>
-<td>Title, category, time, description, group size, age and gender limits, meeting point and radius.</td>
-</tr>
-<tr>
-<td><strong>Join requests and your "UP2 IT" message</strong></td>
-<td>Joining</td>
-<td>Shown to the event creator so they can confirm or decline you.</td>
-</tr>
-<tr>
-<td><strong>Chat messages</strong></td>
-<td>After lock-in</td>
-<td>So the confirmed group can talk until the event ends.</td>
-</tr>
-<tr>
-<td><strong>Activity counts</strong></td>
-<td>Automatic</td>
-<td>Events created, events joined, people met and your favourite category, shown only to you in Settings.</td>
-</tr>
-<tr>
-<td><strong>Basic technical data</strong></td>
-<td>Automatic</td>
-<td>Sign-in sessions and error logs needed to run the app.</td>
-</tr>
+<tr><td data-label="Information">Sign-in details</td><td data-label="When we get it">When you sign in with Apple or Google (or with an email code, if offered)</td><td data-label="Why">To create and secure your account. We receive your email address and an account ID. If you use Apple's "Hide My Email", we receive a private relay address. We never receive your Apple or Google password.</td></tr>
+<tr><td data-label="Information">Name, age and gender</td><td data-label="When we get it">Create Profile</td><td data-label="Why">Your profile card. Age and gender also decide which events you can see and join, because hosts can set age and gender limits.</td></tr>
+<tr><td data-label="Information">Live selfie</td><td data-label="When we get it">Create Profile, then a fresh one every 14 days</td><td data-label="Why">So people can see who they are meeting. It must be taken with the in-app camera; photos from your gallery are not accepted. Older selfies are deleted automatically.</td></tr>
+<tr><td data-label="Information">Hometown</td><td data-label="When we get it">Create Profile or Settings</td><td data-label="Why">Shown on your profile card and used to suggest nearby events. Stored rounded to roughly 1 km, never as your exact address.</td></tr>
+<tr><td data-label="Information">Cultural identity, sexuality and three "What I'm UP2" lines</td><td data-label="When we get it">Create Profile or Settings (all optional)</td><td data-label="Why">Shown on your profile card if you choose to add them. See section 3.</td></tr>
+<tr><td data-label="Information">Events you host</td><td data-label="When we get it">CREATE</td><td data-label="Why">Title, category, time, description, group size, age and gender limits, meeting point, reach radius and time zone.</td></tr>
+<tr><td data-label="Information">Join requests ("UP2 IT")</td><td data-label="When we get it">When you ask to join</td><td data-label="Why">Your request and optional message, so the host can confirm or decline you.</td></tr>
+<tr><td data-label="Information">Chat messages and reactions</td><td data-label="When we get it">After the host locks in</td><td data-label="Why">So the confirmed group can talk until the event ends.</td></tr>
+<tr><td data-label="Information">Reports and blocks</td><td data-label="When we get it">When you report or block someone, or someone reports you</td><td data-label="Why">To keep people safe. See section 9.</td></tr>
+<tr><td data-label="Information">Activity counts</td><td data-label="When we get it">Automatically</td><td data-label="Why">Events created and joined, people met and your favourite category. Shown only to you.</td></tr>
+<tr><td data-label="Information">Device and technical data</td><td data-label="When we get it">Automatically</td><td data-label="Why">Sign-in sessions, a notification token if you allow notifications, and error logs needed to run the app.</td></tr>
 </tbody>
-</table>
-<p>We do not collect payment details, contacts, or your photo library. We do not sell your data and we do not show third-party ads.</p>
+</table></div>
+<p>We do <strong>not</strong> collect payment details, your contacts or your photo library, and we do not use advertising or tracking tools.</p>
 
-<h2>3. Who can see what</h2>
+<h2 id="sensitive">3. Optional sensitive details</h2>
+<p>Cultural identity (shown as flags, for example) and sexuality are "sensitive information" under Australian privacy law. Adding them is entirely optional. If you add them, you consent to us storing them and showing them on your profile card and event cards to other signed-in users. Your cultural identity can also be used by others to filter events (for example, the Travellers filter on JOIN shows plans hosted by people who share a culture). You can change or remove these details at any time in Settings, and they are removed immediately.</p>
+
+<h2 id="use">4. How we use your information</h2>
 <ul>
-<li>Everyone signed in who can see an event can see the event details and its creator's name, photo and profile card.</li>
-<li>The event creator can see the name, photo, age, gender, hometown, three points and message of anyone who asks to join.</li>
-<li>Confirmed group members can see each other's profile cards and the chat.</li>
-<li>Nobody can see your email, phone number, exact stored coordinates, or your stats.</li>
+  <li>To run the app: show events near you, let hosts confirm guests, open group chats and send notifications.</li>
+  <li>To apply the limits hosts set, such as age range and gender.</li>
+  <li>To keep people safe: investigate reports, stop banned or underage people from returning, and enforce our <a href="/terms">Terms</a>.</li>
+  <li>To fix problems and keep the service secure.</li>
+</ul>
+<p>We do not sell or rent your information, use it for advertising, or use it to build profiles of you for anyone else.</p>
+
+<h2 id="see">5. Who can see what</h2>
+<ul>
+  <li><strong>Signed-in users</strong> who can see an event see its details and the host's profile card: first name, selfie, age, and any optional details the host chose to add.</li>
+  <li><strong>The host</strong> sees the profile card and message of everyone who asks to join.</li>
+  <li><strong>The confirmed group</strong> sees each other's profile cards and the chat. In chat, names show as first name and last initial.</li>
+  <li><strong>The exact meeting spot</strong> is shown only after the host locks in the chat, and only to the group. Before that, people see a rough area at most.</li>
+  <li><strong>Nobody else</strong> can see your email address, exact stored coordinates, activity counts, or reports you made.</li>
+  <li><strong>Blocked people</strong> can no longer see your profile or events, and you will not see theirs.</li>
 </ul>
 
-<h2>4. How long we keep it</h2>
+<h2 id="location">6. Location, camera and notifications</h2>
 <ul>
-<li>Events, chatrooms and messages are permanently deleted from our active Supabase servers about 2 hours after the event start time, or sooner if the creator cancels.</li>
-<li>Join requests are deleted with the event they belong to.</li>
-<li>Your profile (name, age, gender, selfie, points, stats) is kept until you delete your account.</li>
-<li>Deleting your account (via Settings) permanently removes your profile, live selfie, events, requests, messages, and login data from our live database immediately.</li>
+  <li><strong>Location</strong> is used only while the app is open, to show nearby events and centre maps. We never track your location in the background. The meeting point you set as a host is stored so your group can find it.</li>
+  <li><strong>Camera</strong> is used only to take your live selfie. We never record video or open your photo library.</li>
+  <li><strong>Notifications</strong> (for example "You're in!", new UP2 ITs and chat messages) are sent only if you allow them. You can turn them off in your phone's settings at any time.</li>
 </ul>
 
-<h2>5. Who processes data for us</h2>
+<h2 id="keep">7. How long we keep it</h2>
+<div class="table"><table>
+<thead><tr><th>Information</th><th>How long</th></tr></thead>
+<tbody>
+<tr><td data-label="Information">Events, chats, messages and join requests</td><td data-label="How long">Deleted about 2 hours after the event's start time, or later if the host extends the event. Deleted straight away if the host cancels.</td></tr>
+<tr><td data-label="Information">Your profile and selfie</td><td data-label="How long">Until you change them or delete your account. Old selfies are deleted automatically when you take a new one.</td></tr>
+<tr><td data-label="Information">Blocks</td><td data-label="How long">Until you unblock the person or delete your account.</td></tr>
+<tr><td data-label="Information">Reports</td><td data-label="How long">Kept while open. Once closed, deleted after 90 days, unless the law or an open investigation requires us to keep them longer.</td></tr>
+<tr><td data-label="Information">Deleted accounts</td><td data-label="How long">See section 8.</td></tr>
+<tr><td data-label="Information">Removed or underage accounts</td><td data-label="How long">We keep a protected record of the sign-in email (stored as a one-way code where possible) so that person cannot sign up again.</td></tr>
+<tr><td data-label="Information">Backups</td><td data-label="How long">Our database provider keeps short-term backups that expire automatically.</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="delete">8. Deleting your account</h2>
+<p>You can delete your account at any time in <strong>Settings → Delete account</strong>, or by emailing <a href="mailto:privacy@up2app.app">privacy@up2app.app</a>. When you do:</p>
 <ul>
-<li>Supabase hosts our database, file storage and login from Sydney, Australia.</li>
-<li>Brevo sends login emails from the European Union (France).</li>
-<li>OpenStreetMap-based map tiles show maps; the map provider sees your device's IP address when tiles load.</li>
-<li>FlutterFlow / Google Flutter is used to build the app and does not receive your profile data.</li>
+  <li>Your profile, selfies, optional details, join requests and sign-in are deleted straight away.</li>
+  <li>Messages you already sent stay in that chat, under your name, until the chat deletes itself as normal. This stops people deleting their account to hide harassment.</li>
+  <li>If you are hosting an event that is already underway, it continues for the group until it ends.</li>
+  <li>To protect other users, we keep your name, age, last selfie and sign-in email in a locked record for 30 days, so you can still be reported and, if needed, banned. Users can never see this record. It is then deleted, unless a report about you is still open.</li>
 </ul>
 
-<h2>6. Your rights</h2>
-<p>You can view and edit your data in Settings. For compliance requests or data portability questions under the Australian Privacy Act 1988, GDPR, or US State laws, contact privacy@up2app.app. We reply to all compliance requests within 30 days.</p>
+<h2 id="safety">9. Safety, reports and moderation</h2>
+<ul>
+  <li>Profiles are self-reported. We do not check IDs or run background checks.</li>
+  <li>You can report or block anyone from their profile card, an event or the chat. When you report someone, we save a copy of the relevant event, chat messages and their selfie as evidence, even after the chat deletes itself.</li>
+  <li>If several different people report the same person, that account is automatically hidden until we review it. Accounts may also be held for review if their name matches a known problem.</li>
+  <li>Reports are confidential. We never tell someone who reported them.</li>
+</ul>
 
-<h2>7. Age Restrictions</h2>
-<p>UP2? is strictly for people aged 18 or older. If we learn that someone under 18 has created an account, we will terminate the account immediately.</p>
+<h2 id="providers">10. Service providers</h2>
+<p>We use these trusted providers to run UP2?. They only process information to provide their service to us.</p>
+<div class="table"><table>
+<thead><tr><th>Provider</th><th>What they do</th><th>Location</th></tr></thead>
+<tbody>
+<tr><td data-label="Provider">Supabase</td><td data-label="What they do">Database, file storage and sign-in</td><td data-label="Location">Sydney, Australia</td></tr>
+<tr><td data-label="Provider">Apple and Google</td><td data-label="What they do">Sign in with Apple and Google sign-in; push notifications (Apple Push Notification service and Firebase Cloud Messaging)</td><td data-label="Location">United States and other countries</td></tr>
+<tr><td data-label="Provider">Stadia Maps</td><td data-label="What they do">Maps and address search. They see your device's IP address and the map area or search text, but do not store location data tied to you.</td><td data-label="Location">United States</td></tr>
+<tr><td data-label="Provider">Brevo</td><td data-label="What they do">Sends sign-in code emails, only if email sign-in is offered</td><td data-label="Location">European Union (France)</td></tr>
+</tbody>
+</table></div>
 
-<h2>8. Safety, Reports, and Blocking</h2>
-<p>Profiles are self-reported and we do not run background checks. Users can block or report anyone directly from their profile card. Reports are kept strictly confidential. Blocked users can no longer see each other's events or profiles.</p>
+<h2 id="overseas">11. Data stored outside Australia</h2>
+<p>Our main database is in Australia. Some providers above are located in the United States or the European Union, so limited information (such as your email address, device token, IP address or a map search) may be handled there. We only use providers with strong privacy and security commitments.</p>
+
+<h2 id="law">12. Authorities and the law</h2>
+<p>We may share information with police or other authorities if the law requires it, or if we reasonably believe it is needed to prevent serious harm to someone.</p>
+
+<h2 id="security">13. Security and data breaches</h2>
+<p>Information is encrypted in transit, and database rules limit each person to the data they are allowed to see. No system is perfectly secure. If a data breach is likely to cause you serious harm, we will tell you and the Office of the Australian Information Commissioner (OAIC) as the law requires.</p>
+
+<h2 id="rights">14. Your rights and complaints</h2>
+<ul>
+  <li>You can view and update most of your information in Settings, and delete your account yourself.</li>
+  <li>You can ask us for a copy of your information, or to correct or delete it, by emailing <a href="mailto:privacy@up2app.app">privacy@up2app.app</a>. We reply within 30 days. This includes requests under the GDPR or US state privacy laws.</li>
+  <li>If you are unhappy with how we handled a privacy matter, contact us first. If we cannot fix it, you can complain to the OAIC at <a href="https://www.oaic.gov.au" rel="noopener">oaic.gov.au</a>.</li>
+</ul>
+
+<h2 id="age">15. Age limit</h2>
+<p>UP2? is strictly for people aged 18 or over. If someone enters an age under 18, they cannot create an account, and their sign-in email is blocked from trying again. If we learn an under-18 has an account, we delete it.</p>
+
+<h2 id="changes">16. Changes and contact</h2>
+<p>If we make important changes to this policy, we will update the date at the top and let you know in the app. For anything privacy related, email <a href="mailto:privacy@up2app.app">privacy@up2app.app</a>.</p>
+</main>
+
+<footer><div class="inner">
+  <span>© 2026 UP2? App</span>
+  <a href="/privacy">Privacy Policy</a>
+  <a href="/terms">Terms of Use</a>
+  <a href="mailto:support@up2app.app">support@up2app.app</a>
+</div></footer>
 </body>
 </html>
-
