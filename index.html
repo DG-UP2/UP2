@@ -26,31 +26,32 @@ body {
   display:flex; flex-direction:column; min-height:100vh; min-height:100dvh;
 }
 
-/* The UP2? frame: 10 px, 9 blended bands, outside to inside, the same as the app */
+/* The UP2? frame: 26 px, 9 blended bands, outside to inside, the same as the app */
 .frame {
   position:fixed; inset:0; pointer-events:none; z-index:10;
   box-shadow:
-    inset 0 0 1px 1.11px #FC3D3D,
-    inset 0 0 1px 2.22px #FF5252,
-    inset 0 0 1px 3.33px #FF7A00,
-    inset 0 0 1px 4.44px #FFE500,
-    inset 0 0 1px 5.56px #00E676,
-    inset 0 0 1px 6.67px #00B0FF,
-    inset 0 0 1px 7.78px #9466FF,
-    inset 0 0 1px 8.89px #E040FB,
-    inset 0 0 1px 10px   #7A3EE6,
-    inset 0 0 24px 10px  rgba(156,91,255,0.18);
+    inset 0 0 2px 2.89px #FC3D3D,
+    inset 0 0 2px 5.78px #FF5252,
+    inset 0 0 2px 8.67px #FF7A00,
+    inset 0 0 2px 11.56px #FFE500,
+    inset 0 0 2px 14.44px #00E676,
+    inset 0 0 2px 17.33px #00B0FF,
+    inset 0 0 2px 20.22px #9466FF,
+    inset 0 0 2px 23.11px #E040FB,
+    inset 0 0 2px 26.00px #7A3EE6,
+    inset 0 0 40px 26px  rgba(156,91,255,0.18);
 }
 
 main {
   flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
-  text-align:center; padding:56px 28px 24px;
+  text-align:center; padding:64px 44px 24px;
 }
 h1 {
   font-weight:900;
   font-size:clamp(96px, 30vw, 240px);
   line-height:0.9; letter-spacing:0; /* same as the app */
   text-shadow:0 0 50px rgba(156,91,255,0.22);
+  transform-origin:50% 50%; will-change:transform;
 }
 .lines { margin-top:clamp(26px, 5vw, 40px); display:grid; gap:10px; }
 .lines p { font-weight:900; font-size:clamp(18px, 4.8vw, 24px); line-height:1.25; text-wrap:balance; }
@@ -68,7 +69,7 @@ ol .n {
 }
 
 footer {
-  padding:0 28px 34px; text-align:center; color:var(--muted); font-size:13px; font-weight:500;
+  padding:0 44px 44px; text-align:center; color:var(--muted); font-size:13px; font-weight:500;
 }
 footer nav { display:flex; justify-content:center; flex-wrap:wrap; gap:6px 22px; margin-bottom:8px; }
 footer a { color:var(--soft); font-weight:900; text-decoration:none; }
@@ -84,7 +85,7 @@ a:focus-visible { outline:2px solid #B98CFF; outline-offset:3px; border-radius:4
 <div class="frame" aria-hidden="true"></div>
 
 <main>
-  <h1>UP2?</h1>
+  <h1 id="logo">UP2?</h1>
 
   <div class="lines">
     <p>What are you UP2?</p>
@@ -107,5 +108,71 @@ a:focus-visible { outline:2px solid #B98CFF; outline-offset:3px; border-radius:4
   </nav>
   <p>&copy; 2026 UP2? App</p>
 </footer>
+<script>
+/* UP2? tricks: a hulk landing on open, then an ollie + double kickflip at 2.2 s, then again
+   every 4.4 s after each landing. Same feel as the app's kickflip loader, just smaller. */
+(function () {
+  var el = document.getElementById('logo');
+  if (!el || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  var smooth = function (t) { return t * t * (3 - 2 * t); };
+  var PERSP = 'perspective(1100px) ';
+  function set(lift, flip, sy) {
+    el.style.transform = PERSP + 'translateY(' + (-lift).toFixed(2) + 'px) rotateX(' +
+      flip.toFixed(4) + 'rad) scaleY(' + sy.toFixed(4) + ')';
+  }
+
+  var LAND_MS = 650;      // drop in from above and stomp the landing
+  var TRICK_MS = 1500;    // one ollie + double kickflip
+  var FIRST_AT = 2200;    // first trick, from page open
+  var EVERY = 4400;       // pause after each landing before the next trick
+  var start = null, nextTrick = FIRST_AT, trickStart = -1;
+
+  function landing(t) {          // t: 0..1
+    if (t < 0.55) {              // falling in
+      var u = t / 0.55;
+      set(70 * (1 - u * u), 0, 1);
+    } else {                     // stomp: squash and recover
+      var v = (t - 0.55) / 0.45;
+      set(0, 0, 1 - 0.16 * Math.sin(Math.PI * v) * (1 - v * 0.3));
+    }
+  }
+
+  function trick(t) {            // t: 0..1
+    var lift = 0, flip = 0, sy = 1;
+    var h = Math.min(56, el.offsetHeight * 0.3);   // small ollie: never near the top of the page
+    if (t < 0.10) {
+      sy = 1 - 0.12 * smooth(t / 0.10);            // crouch
+    } else if (t < 0.84) {
+      var u = (t - 0.10) / 0.74;                   // in the air
+      lift = h * Math.sin(Math.PI * u);
+      flip = -4 * Math.PI * smooth(u);             // two clean kickflips, underside towards you
+      sy = 0.88 + 0.12 * smooth(Math.min(1, u * 5));
+    } else {
+      var w = (t - 0.84) / 0.16;                   // land
+      sy = 1 - 0.1 * Math.sin(Math.PI * w);
+    }
+    set(lift, flip, sy);
+  }
+
+  function frame(now) {
+    if (start === null) start = now;
+    var ms = now - start;
+    if (ms < LAND_MS) {
+      landing(ms / LAND_MS);
+    } else if (trickStart < 0 && ms >= nextTrick) {
+      trickStart = ms;
+    }
+    if (trickStart >= 0) {
+      var p = (ms - trickStart) / TRICK_MS;
+      if (p >= 1) { set(0, 0, 1); nextTrick = ms + EVERY; trickStart = -1; }
+      else trick(p);
+    } else if (ms >= LAND_MS) {
+      set(0, 0, 1);
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>
